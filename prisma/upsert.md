@@ -35,7 +35,7 @@ upsert({
 
 ##  Flowchart — Decision Logic
 
-[flowchart](./assets/06A0EF51-04E4-456D-8BD2-4F6A46D8DB58.png)
+![flowchart](./assets/06A0EF51-04E4-456D-8BD2-4F6A46D8DB58.png)
 
 ---
 
