@@ -7,7 +7,7 @@ tags: [prisma, database, prisma-methods]
 
 ---
 
-# 🔁 Prisma `upsert` — Complete Notes
+#  Prisma `upsert` — Complete Notes
 
 > [!tip] What is `upsert`?
 > **Upsert = Update + Insert**
@@ -21,9 +21,9 @@ tags: [prisma, database, prisma-methods]
 
 ```
 upsert({
-  where:  { unique_field: value },   // 🔍 LOOKUP key
-  update: { ...fields },             // ✏️  runs if FOUND
-  create: { ...fields },             // ➕ runs if NOT FOUND
+  where:  { unique_field: value },  
+  update: { ...fields },             
+  create: { ...fields },      
 })
 ```
 
