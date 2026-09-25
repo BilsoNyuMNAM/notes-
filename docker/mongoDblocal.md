@@ -15,6 +15,7 @@ You are building and testing. You write bad code. It deletes all users.
 If that happened on Atlas(MongoDb provider) — **real data is gone.**
 With mongoDb running locally you can Break it. Reset it. Mess it up. Nobody cares.
 Also , when there is no internet , you cannot use Atlas, but with running locally you can run it even without the internet 
+[More on why you should run db locally:](https://studio3t.com/knowledge-base/articles/5-reasons-you-should-install-a-local-mongodb-database/)
 
 ### Why docker ? 
 To run MongoDB locally, you'd normally have to **install it** on your computer.
@@ -31,9 +32,8 @@ The problem with installing:
 You just run 
 ```
 docker run -p 27017:27017 mongo 
-
 ```
-![more on the -p:](https://docs.docker.com/engine/network/port-publishing/)
+[more on the -p:](https://docs.docker.com/engine/network/port-publishing/)
 
 MongoDb is started in a container , 
 
