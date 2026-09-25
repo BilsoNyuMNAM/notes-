@@ -15,8 +15,7 @@ You are building and testing. You write bad code. It deletes all users.
 If that happened on Atlas(MongoDb provider) — **real data is gone.**
 With mongoDb running locally you can Break it. Reset it. Mess it up. Nobody cares.
 Also , when there is no internet , you cannot use Atlas, but with running locally you can run it even without the internet 
-![more on why you should run database locally:](https://studio3t.com/knowledge-base/articles/5-reasons-you-should-install-a-local-mongodb-database/)
----
+
 ### Why docker ? 
 To run MongoDB locally, you'd normally have to **install it** on your computer.
 The problem with installing:
@@ -25,7 +24,7 @@ The problem with installing:
 - You have to configure so that MongoDb works,
 - It also takes up a large amount of storage space on your computer
 - Sits on your computer forever
----
+
 
 **Docker lets you run MongoDB without installing it.** 
 
@@ -40,7 +39,7 @@ MongoDb is started in a container ,
 
 
 ***See, there was no need for installing , confiuguration etc***
----
+
 ## Connecting mongoDb using MongoDb Compass 
  - When you are using database from a provider for your backend you will get the connection string , paste it in the env and use it , 
 - But we already have mongoDb running in a container at `localhost:27017` , we just needs to connects to it,
