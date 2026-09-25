@@ -221,3 +221,6 @@ model Exercise {
 
 > [!abstract] Summary in One Line
 > **`where` = find it. Found? → `update`. Not found? → `create`.**
+
+
+do you see this 
