@@ -1,0 +1,38 @@
+name: Sync Notes to Docs Website
+
+on:
+  push:
+    branches:
+      - master # triggers whenever you push to master in notes-
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your docs website repo using the PAT
+      - name: Checkout Docs Repo
+        uses: actions/checkout@v4
+        with:
+          repository: BilsoNyuMNAM/static-markdown-generator
+          token: ${{ secrets.SYNC_TOKEN }}
+          submodules: true
+          fetch-depth: 0
+
+      # 2. Update the submodule to the newest notes commit and push
+      - name: Update Submodule & Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Pull latest commit from notes- master branch
+          git submodule update --remote --merge src/content/docs
+
+          # Only commit if there are changes
+          if git diff --quiet src/content/docs; then
+            echo "No submodule updates needed."
+          else
+            git add src/content/docs
+            git commit -m "chore: auto-sync notes from notes- repo"
+            git push origin master
+          fi
