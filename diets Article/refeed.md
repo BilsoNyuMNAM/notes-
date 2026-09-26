@@ -42,7 +42,7 @@ The body becomes more economical
 Fat loss becomes harder
 ```
 
-[graph](./assets/F598749A-5F3E-4A1F-8441-4BE5623882EE.png)
+![graph](./assets/F598749A-5F3E-4A1F-8441-4BE5623882EE.png)
 
 > These adaptations are usually mild during moderate weight loss and become more pronounced when dieting is more extreme: very fast weight loss, large amounts of weight loss, or getting very lean.
 
@@ -86,7 +86,7 @@ Brain receives a stronger "energy is scarce" signal
 ```
 
 Lower leptin is connected with several changes:
-[leptin](./assets/9BAA11DD-EE50-44EF-85A3-EFD2C5FC0483.png)
+![leptin](./assets/9BAA11DD-EE50-44EF-85A3-EFD2C5FC0483.png)
 
 
 **One signal can affect many parts of the adaptation response.**
