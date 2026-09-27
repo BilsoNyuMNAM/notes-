@@ -26,6 +26,9 @@ How to Map ports in Docker?:[Link](https://www.geeksforgeeks.org/devops/how-to-m
 
 [More about port mapping:](/notes/docker/mongoDblocal/#docker-lets-you-run-mongodb-without-installing-it)
 
+
+`host port: container port` - the left number is what you access on your machine and the right is what the app listens on inside the container 
+
 ***Example***
 ```
 docker run -p 8080:3000 your-app
