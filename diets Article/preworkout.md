@@ -43,7 +43,7 @@ Otherwise you have no fuel
 Carbohydrates are rarely a performance limiter during **short or moderate** sessions. But they can matter more in certain situations:
 
 | Situation | Pre-workout carbs useful? |
-|-----------|--------------------------|
+|-----------|---------------------------|
 | Short / moderate session, fed state | Generally not necessary |
 | Long session (>~45 min) or high volume (>8–10 sets) | May help maintain training volume |
 | Training fasted | Eating beforehand may help |
@@ -51,7 +51,7 @@ Carbohydrates are rarely a performance limiter during **short or moderate** sess
 
 > The more demanding the session and the less favorable your fueling situation, the more value pre-workout carbs may provide.
 
----
+--- 
 
 ## 3. How carbs before training help (when they do)
 
