@@ -28,9 +28,7 @@ docker compose up
 ```
 
 ### The Terminal Error Output
-```text
-validating /Users/bilsonyumnam/Desktop/harkirat/Docker/week-27-docker-compose/docker-compose.yml: services.application.ports must be a array
-```
+![error](./assets/port.jpeg)
 
 ### Where the Issue Arose in `docker-compose.yml`
 When running `docker compose up`, Docker Compose validates the `.yml` schema before creating any networks or containers.
@@ -93,9 +91,7 @@ In YAML:
 
 ### The Error
 The container status was `Up`, and port `3000` was published, but visiting `http://localhost:3000` in the browser resulted in:
-```text
-This site can't be reached (ERR_CONNECTION_REFUSED)
-```
+![issue](./assets/sitecannotbereached.png)
 
 ### Why it Happened
 The package script was:
