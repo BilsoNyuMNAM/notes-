@@ -64,7 +64,7 @@ app.listen(3000, "0.0.0.0", () => {
 ```
 
 > [!TIP]
-> For why `0.0.0.0` is required instead of `localhost`, see [Bug 3 in the Bug Log](./dockerComposePrismaBugs.md#3-bug-3-express-listening-on-127001-instead-of-0000).
+> For why `0.0.0.0` is required instead of `localhost`, see [Bug 3 in the Bug Log](/notes/docker/dockercomposeprismabugs#3-bug-3-express-listening-on-127001-instead-of-0000).
 
 ---
 
@@ -103,7 +103,7 @@ CMD ["npm", "run", "dev:docker"]
 ```
 
 > [!IMPORTANT]
-> `RUN npx prisma generate` must come before `RUN npm run build`. Otherwise, TypeScript compilation fails. See [Bug 4 in the Bug Log](./dockerComposePrismaBugs.md#4-bug-4-dockerfile-build-fails-due-to-order-of-prisma-generate-and-build).
+> `RUN npx prisma generate` must come before `RUN npm run build`. Otherwise, TypeScript compilation fails. See [Bug 4 in the Bug Log](/notes/docker/dockercomposeprismabugs#4-bug-4-dockerfile-build-fails-due-to-order-of-prisma-generate-and-build).
 
 ---
 
@@ -147,7 +147,7 @@ services:
 > ```text
 > validating docker-compose.yml: services.application.ports must be a array
 > ```
-> See [Bug 1 in the Bug Log](./dockerComposePrismaBugs.md#1-bug-1-docker-compose-syntax-error--ports-must-be-an-array) for the side-by-side comparison of `postgres` vs `application`.
+> See [Bug 1 in the Bug Log](/notes/docker/dockercomposeprismabugs#1-bug-1-docker-compose-syntax-error--ports-must-be-an-array) for the side-by-side comparison of `postgres` vs `application`.
 
 3. **Database URL & DNS Resolution:**
    ```text
@@ -155,7 +155,7 @@ services:
                                                    ↑
                                           Docker Service Name
    ```
-   Inside Docker Compose, containers communicate through their service names. The app talks to `postgres:5432`, **not** `localhost:5432`. *(See [Bug 5 in the Bug Log](./dockerComposePrismaBugs.md#5-bug-5-hostname-confusion-in-database_url-host-vs-container)).*
+   Inside Docker Compose, containers communicate through their service names. The app talks to `postgres:5432`, **not** `localhost:5432`. *(See [Bug 5 in the Bug Log](/notes/docker/dockercomposeprismabugs#5-bug-5-hostname-confusion-in-database_url-host-vs-container)).*
 
 ---
 
@@ -176,7 +176,7 @@ In `package.json`, the container startup command is:
 * `prisma db push` directly syncs `schema.prisma` with PostgreSQL without asking questions, allowing `node dist/index.js` to start immediately.
 
 > [!WARNING]
-> For details on why `prisma migrate dev` causes the container to freeze and why `--name` doesn't solve it on restarts, read [Bug 2 in the Bug Log](./dockerComposePrismaBugs.md#2-bug-2-container-freezes-on-startup-due-to-prisma-migrate-dev).
+> For details on why `prisma migrate dev` causes the container to freeze and why `--name` doesn't solve it on restarts, read [Bug 2 in the Bug Log](/notes/docker/dockercomposeprismabugs#2-bug-2-container-freezes-on-startup-due-to-prisma-migrate-dev).
 
 ---
 
@@ -228,4 +228,4 @@ Inside `/app`, we can verify:
 ---
 
 ## Reference & Troubleshooting
-- [Common Mistakes & Bug Log](./dockerComposePrismaBugs.md)
+- [Common Mistakes & Bug Log](/notes/docker/dockercomposeprismabugs)
