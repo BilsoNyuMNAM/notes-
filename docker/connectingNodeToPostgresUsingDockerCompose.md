@@ -20,7 +20,6 @@ That is it.
 
 ```text
 week-27-docker-compose/
-├── Contribute.md
 ├── Dockerfile
 ├── docker-compose.yml
 ├── package.json
@@ -31,7 +30,7 @@ week-27-docker-compose/
 └── src/
     └── index.ts
 ```
-[Link to the repo](https://github.com/100xdevs-cohort-3/week-27-docker-compose/)
+[Link to the repo:](https://github.com/100xdevs-cohort-3/week-27-docker-compose/)
 
 ### The Application Code (`src/index.ts`)
 
@@ -64,13 +63,13 @@ app.listen(3000, "0.0.0.0", () => {
 ```
 
 > [!TIP]
-> For why `0.0.0.0` is required instead of `localhost`, see [Bug 3 in the Bug Log](/notes/docker/dockercomposeprismabugs#3-bug-3-express-listening-on-127001-instead-of-0000).
+> For why `0.0.0.0` is required instead of `localhost`, see [Bug 3 in the Bug Log](./dockerComposePrismaBugs.md#3-bug-3-express-listening-on-127001-instead-of-0000).
 
 ---
 
 ## 2. Why a Dockerfile is Needed & Connection to `build: .`
 
-A `Dockerfile` is needed because our application is custom source code. Unlike PostgreSQL, which has a pre-built image on Docker Hub (`image: postgres`), Docker does not know how to install our npm dependencies, generate Prisma client types, or compile our TypeScript code.
+A `Dockerfile` is needed because our application is custom source code( you are making the image from the source code ). Unlike PostgreSQL, which has a pre-built image on Docker Hub (`image: postgres`), Docker does not know how to install our npm dependencies, generate Prisma client types, or compile our TypeScript code.
 
 In `docker-compose.yml`, the line:
 
@@ -103,7 +102,7 @@ CMD ["npm", "run", "dev:docker"]
 ```
 
 > [!IMPORTANT]
-> `RUN npx prisma generate` must come before `RUN npm run build`. Otherwise, TypeScript compilation fails. See [Bug 4 in the Bug Log](/notes/docker/dockercomposeprismabugs#4-bug-4-dockerfile-build-fails-due-to-order-of-prisma-generate-and-build).
+> `RUN npx prisma generate` must come before `RUN npm run build`. Otherwise, TypeScript compilation fails. See [Bug 4 in the Bug Log](./dockerComposePrismaBugs.md#4-bug-4-dockerfile-build-fails-due-to-order-of-prisma-generate-and-build).
 
 ---
 
@@ -139,15 +138,8 @@ services:
 
 2. **`application` service:**
    * `build: .` builds the image using the local `Dockerfile`.
-   * `ports: - "3000:3000"` forwards your laptop's `localhost:3000` to the container's port `3000`.
+   * `ports: - "3000:3000"` forwards your laptop's `localhost:3000` to the container's port `3000`. *(Must be written as an array with `-`, see [Bug 1 in the Bug Log](./dockerComposePrismaBugs.md#1-bug-1-docker-compose-syntax-error--ports-must-be-an-array)).*
    * `depends_on: - postgres` ensures the database container starts before the application container.
-
-> [!WARNING]
-> When running `docker compose up`, omitting the hyphen `-` before `"3000:3000"` causes:
-> ```text
-> validating docker-compose.yml: services.application.ports must be a array
-> ```
-> See [Bug 1 in the Bug Log](/notes/docker/dockercomposeprismabugs#1-bug-1-docker-compose-syntax-error--ports-must-be-an-array) for the side-by-side comparison of `postgres` vs `application`.
 
 3. **Database URL & DNS Resolution:**
    ```text
@@ -155,7 +147,9 @@ services:
                                                    ↑
                                           Docker Service Name
    ```
-   Inside Docker Compose, containers communicate through their service names. The app talks to `postgres:5432`, **not** `localhost:5432`. *(See [Bug 5 in the Bug Log](/notes/docker/dockercomposeprismabugs#5-bug-5-hostname-confusion-in-database_url-host-vs-container)).*
+   Inside Docker Compose, containers communicate through their service names. The app talks to `postgres:5432`, **not** `localhost:5432`. *(See [Bug 5 in the Bug Log](./dockerComposePrismaBugs.md#5-bug-5-hostname-confusion-in-database_url-host-vs-container)).*
+
+4. 
 
 ---
 
@@ -176,7 +170,7 @@ In `package.json`, the container startup command is:
 * `prisma db push` directly syncs `schema.prisma` with PostgreSQL without asking questions, allowing `node dist/index.js` to start immediately.
 
 > [!WARNING]
-> For details on why `prisma migrate dev` causes the container to freeze and why `--name` doesn't solve it on restarts, read [Bug 2 in the Bug Log](/notes/docker/dockercomposeprismabugs#2-bug-2-container-freezes-on-startup-due-to-prisma-migrate-dev).
+> For details on why `prisma migrate dev` causes the container to freeze and why `--name` doesn't solve it on restarts, read [Bug 2 in the Bug Log](./dockerComposePrismaBugs.md#2-bug-2-container-freezes-on-startup-due-to-prisma-migrate-dev).
 
 ---
 
@@ -205,27 +199,5 @@ docker compose logs -f application
 
 ---
 
-## 6. Verifying Files Inside the Running Container (`docker exec`)
-
-To inspect what was actually built and copied into the container's working directory (`/app`), open an interactive shell:
-
-```bash
-docker exec -it <container_id> /bin/sh
-# or using compose service name:
-docker compose exec application sh
-```
-
-Running `ls` inside `/app` confirms all files:
-
-![Files inside container](./assets/docker-exec-container-files.png)
-
-Inside `/app`, we can verify:
-- `dist/`: Contains compiled JavaScript files generated by `RUN npm run build`.
-- `node_modules/`: Contains installed dependencies and the generated `@prisma/client`.
-- `prisma/`: Contains `schema.prisma`.
-- Source and config files: `src/`, `package.json`, `tsconfig.json`, `Contribute.md`.
-
----
-
 ## Reference & Troubleshooting
-- [Common Mistakes & Bug Log](/notes/docker/dockercomposeprismabugs)
+- [Common Mistakes & Bug Log](./dockerComposePrismaBugs.md)

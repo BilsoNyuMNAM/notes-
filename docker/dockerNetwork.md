@@ -120,8 +120,8 @@ Notice:
 ├── ⚙️ package.json
 └── ⚙️ tsconfig.json
 ```
+[Github link to the codebase:][https://github.com/100xdevs-cohort-2/week-15-live-2.2/tree/main]
 
-(Github link to the codebase:)[https://github.com/100xdevs-cohort-2/week-15-live-2.2/tree/main]
 ### 1. `src/db.ts`
 Notice line 3: the connection string explicitly uses the hostname `mongo1`:
 
