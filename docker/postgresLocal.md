@@ -50,7 +50,7 @@ To bridge this gap, you must use **port mapping**:
 
 ### Diagram: Host to Container Port Mapping
 
-![Docker Port Mapping](https://www.acte.in/wp-content/uploads/2025/02/Docker-Port-Mapping-1568x854.png)
+![Docker Port Mapping](https://linuxhandbook.com/content/images/2025/04/docker-port-mapping.png)
 
 ```text
 Host Machine (Your Computer)                    PostgreSQL Container
@@ -124,12 +124,14 @@ Once connected (`postgres=#` prompt):
    ```sql
    \dt
    ```
-
+[image](./assets/dt.jpeg)
 2. **Describe table schema & columns:**
    ```sql
    \d "User"
    ```
    *(Use double quotes `"User"` because ORMs like Prisma create table names with matching case).*
+
+[image](./assets/duser.jpeg)
 
 3. **Query records:**
    ```sql
