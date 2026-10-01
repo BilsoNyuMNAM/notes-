@@ -4,7 +4,7 @@ title: Prisma Module Not Found in Monorepo
 description: this note will clear your doubt you have about importing prisma instance made in packages/db to app/http-server
 type: NOTE
 year: 2026
-tags: [mono repo, prisma, prisma client, bug]
+tags: [mono repo, prisma, prisma client, bug, package manager]
 ---
 
 ## 1. The Error Message
@@ -153,7 +153,7 @@ Understanding this difference is key to understanding why this bug happened:
 1. `pnpm install` does **not** download anything from npm.
 2. It does **not** compile your code.
 3. Instead, it creates a **symlink** (a shortcut pointer) inside `apps/http-server/node_modules/@package/db` that points directly to your raw source folder `packages/db`. (../../packages/db)[File structure](#2-monorepo-file-tree-example)
-
+ [another_reference_about_symlink](https://cms-git-harkirat-cms-bilsonyumnams-projects.vercel.app/UNDERSTANDING-MONO-AND-TURBO-REPO/Mono-repo-introduction-to-solve-the-problem) search (symlink)
 
 
 ### How the Symlink Causes the Issue:
