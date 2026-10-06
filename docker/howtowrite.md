@@ -72,7 +72,7 @@ People ask: *"How does `web` know where `db` is? I never gave an IP address. I n
 
 When you run `docker compose up`, Compose **automatically creates a private network** and attaches all your services(containers) to it.
 
-![docker compose network](./assets/Screenshot 2026-09-29 at 11.53.06 AM.png)
+![docker compose network](./assets/composenetwork.png)
 
 ( db should be mongo1)
 
@@ -145,6 +145,74 @@ services:
 
 - `build: .` → look at current folder, find Dockerfile, build it
 - `image:` → download from Docker Hub, no build needed
+
+`build: .` is the short version of:
+
+```yaml
+build:
+  context: .
+  dockerfile: Dockerfile
+```
+
+Docker assumes:
+- `context` = `.` (current folder)
+- `dockerfile` = `Dockerfile` (default name)
+
+####  What is `context`?
+`context` is the folder that Docker sends to Docker Engine before building. 
+Docker can **only see and copy files that are inside this folder.**
+
+![context diagram](./assets/context.png)
+
+
+#### When do you need `context` + `dockerfile`?
+**Same level**(the dockerfile and compose file) → shorthand is enough:
+```
+root/
+├── docker-compose.yml
+└── Dockerfile
+```
+
+```yaml
+web:
+  build: .   # works
+```
+**Different level** → you must be explicit:
+
+```
+root/
+├── docker-compose.yml
+└── docker/
+    └── Dockerfile.frontend
+```
+```yaml
+web:
+  build:
+    context: .                              #  root — sees all source files
+    dockerfile: docker/Dockerfile.frontend  # exact path to Dockerfile
+```
+
+#### Why context must point to source code
+The Dockerfile gives Docker **instructions.** (copy, run etc)
+The context gives Docker **the files to work with.** (the files to copy  ....)
+
+`COPY` inside a Dockerfile only works on files that **arrived inside the context.** [Context](./howtowrite.md#what-is-context)
+So if the context does not give the /app folder , the docker file has copy ./app/frontend/package.json , but it does not arrive in the context , so there will be issue 
+
+```dockerfile
+COPY apps/frontend/src/ .   # ❌fails if context does not include apps/
+```
+
+So if your project looks like this:
+```
+root/
+├── apps/frontend/   ← source code
+├── docker/          ← Dockerfiles
+└── docker-compose.yml
+```
+
+You must use `context: .` (root) so Docker can see **both** the source code and the Dockerfile path.
+
 
 ---
 

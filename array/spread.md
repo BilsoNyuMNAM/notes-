@@ -3,7 +3,7 @@ title: HOW SPREAD OPERATOR WORKS
 description: explaination with example on how spread operator works 
 type: NOTE
 year: 2026
-tags: [array, array method, spread operator]
+tags: [array, array method, spread operator, javascript]
 ---
 
 # What does spread operator(...) means ? 
