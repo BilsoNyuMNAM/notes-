@@ -162,7 +162,7 @@ Docker assumes:
 `context` is the folder that Docker sends to Docker Engine before building. 
 Docker can **only see and copy files that are inside this folder.**
 
-![context diagram](./assets/context.png)
+![context diagram](./assets/context.jpeg)
 
 
 #### When do you need `context` + `dockerfile`?

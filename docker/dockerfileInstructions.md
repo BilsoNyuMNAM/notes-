@@ -521,13 +521,17 @@ Reads your `Dockerfile` and creates a Docker image from it. You run this before 
 ```bash
 docker build -t <image-name> <path-to-dockerfile>
 ```
+If you docker file is not at the root  then the the <path-to-dockerfile>  "." is not enough,  add a flag and define the path to the docker file 
+`-f or --file path/to/Dockerfile` and then "." [reference:](#what-does--mean)
 
 **Example:**
-```bash
-docker build -t my-app .
+```javascript
+docker build -t my-app .  //if the docker file is at the root 
+docker build -t my-app -f app/Dockefile // docker file is at root>app
 ```
 
 - `-t my-app` → gives the image the name `my-app`
+### What does "." mean
 - `.` → means "look for the Dockerfile in the current folder"
 
 > **Tip:** Every time you change your `Dockerfile`, rebuild the image with this command.
