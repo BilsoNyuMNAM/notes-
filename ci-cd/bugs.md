@@ -1,6 +1,6 @@
 ---
 title: Some issue i faced in the ci/cd when redeploying the `auto-deploy_vm` monorepo
-description: Link to the repo: [https://github.com/BilsoNyuMNAM/auto-deploy_vm]
+description: Link to the repo - [https://github.com/BilsoNyuMNAM/auto-deploy_vm]
 type: NOTE
 year: 2026
 tags: [ci-cd, how to, bug, virtual_machine, troubleshooting]
