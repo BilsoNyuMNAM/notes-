@@ -10,13 +10,6 @@ tags: [react, useEffect, async await, practical, fetch, callback function]
 
 `useEffect` expects its callback to return **nothing** or a **cleanup function**.
 
-```ts
-useEffect(() => {
-  // do something
-  return () => { /* optional cleanup */ }
-}, [])
-```
-
 ---
 
 ## CALLBACK FUNCTION
@@ -82,7 +75,6 @@ This function returns undefined. Not the result of doSomething().
 ### Rule 2 — async function always returns a Promise
 ```javascript
 async function fetchAlltodos() { ... }
-
 fetchAlltodos() // this gives you a Promise
 ```
 

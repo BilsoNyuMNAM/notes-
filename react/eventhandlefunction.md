@@ -91,7 +91,7 @@ function handleAddTodo() {
 - When you write handleAddTodo() — you are calling it right now, and JavaScript replaces it with the result:
 ```javascript
 onClick={handleAddTodo()}
-// JavaScript sees this as:
+// JavaScript sees this as: 
 onClick={undefined}   // ← the result of calling the function
 
 ```
@@ -105,7 +105,7 @@ onClick={function() { console.log("todo added!") }}  // ← the function itself
 ```
 So onClick receives the actual function and calls it later when you click
 
-
+    ₹
 
 ---
 
