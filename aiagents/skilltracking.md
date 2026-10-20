@@ -1,3 +1,10 @@
+---
+title: skills and plugin i have installed in opencode and antigravity
+description: 
+type: NOTE
+year: 2026
+tags: [opencode, antigravity]
+---
 
 
 - archify (gemini and opencode ): Turn any idea, plan, or codebase into a beautiful interactive diagram

@@ -3,7 +3,7 @@ title: A guide on how to install github plugin or skills in antigravity and open
 description: 
 type: NOTE
 year: 2026
-tags: [ai-agents, how to]
+tags: [ai-agents, how to, opencode, antigravity]
 ---
 
 
