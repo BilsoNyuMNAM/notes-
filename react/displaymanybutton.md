@@ -41,5 +41,4 @@ const options = [
   </button>
 ))}
 
-
 ```
