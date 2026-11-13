@@ -97,6 +97,45 @@ setTodos((prev) => [...prev, { task: input, check: false }])
 
 ---
 
+## How do i update a value inside this array of object instead of updating ?
+```javascript
+const todos = [
+  { task: "Buy milk", check: false },
+  { task: "Walk dog", check: false }
+]
+```
+- you want index[1], check to true . How would you do it??
+
+first spread the array 
+```javascript 
+[...todos]
+```
+how do we access an an element inside array ? 
+```javascript
+todos[1] // this will give the index 1 element , which is an object 
+```
+
+We know how to spread an object !!
+
+```javascript
+{...object}
+
+```
+
+combine this 3 we get 
+
+```javascript 
+todos.map((todo, index)=>{ //todo is an object, so from (spreading an object)
+  (index == 1) ?{...todo, check:true} : todo
+})
+
+```
+
+## Spreading a deep nested array or object :
+https://chatgpt.com/c/6aedf29a-a678-83e8-88a6-e7a526329720
+> note: it is only used when we do changes / update something lying deep , and not the top level 
+- if you just update hte top level `...` is enough 
+
 ## How to add new things after spreading the array
 
 Just write them after the spread, separated by a comma.
