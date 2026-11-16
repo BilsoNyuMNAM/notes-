@@ -44,7 +44,7 @@ Simple rule: No {} = value returns by itself. With {} = you must type return.
 
 ## 4. Returning an Object — The Tricky Part
 
-Problem: After =>, JavaScript always reads { as "start of code block", NOT as an object.
+Problem: After =>, JavaScript always reads "{" as "start of code block" (the function body), NOT as an object.
 
 - JS thinks this is a code block — returns undefined
 () => { id: 1 }
@@ -57,10 +57,11 @@ The ( tells JavaScript — "what comes next is a value, not a code block"
 so it reads { id: 1 } as an object.
 
 See the difference clearly:
-
+```javascript
 const a = () => { id: 1 }              // undefined  (code block)
 const b = () => ({ id: 1 })            // { id: 1 }  (object)
 const c = () => { return { id: 1 } }   // { id: 1 }  (explicit return)  > remember the syntax of using return 
+```
 
 Quick rule:
 

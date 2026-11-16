@@ -3,7 +3,7 @@
 
 title: Popup effect in react
 description: How popup effect in tailwind is created
-type: NOTE
+type: Project
 year: 2026
 tags: [react, practical, tailwind]
 
@@ -17,7 +17,13 @@ The popup effect comes from three other things:
 
 
 a visual artifcats that show how these 3 points work together:
-file:///Users/bilsonyumnam/Desktop/fullstack%20project/Hypertrophy/frontend/popup-demo.html
+```javascript
+file:///Users/bilsonyumnam/Desktop/fullstack%20project/Hypertrophy/mdfiles/popup-demo.html
+```
+```mermaid
+
+
+```
 ```jsx
 <div classname="fixed inset-0 bg-black/60 z-50">
     <div></div> // this div need to have a color slightly different from the parent 
