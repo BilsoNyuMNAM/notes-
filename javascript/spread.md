@@ -2,6 +2,7 @@
 title: HOW SPREAD OPERATOR WORKS 
 description: explaination with example on how spread operator works 
 type: NOTE
+date: 2026-11-13
 year: 2026
 tags: [array, array method, spread operator, javascript]
 ---

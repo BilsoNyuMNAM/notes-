@@ -1,7 +1,8 @@
 ---
 title: How to Create a Toast Box Notification in React
 description: A first-principles breakdown of how to build a toast notification that appears on an event and auto-disappears after a set time, using only useState and setTimeout
-type: NOTE
+type: Project
+Date: 2026-11-12
 year: 2026
 tags: [react, useState, setTimeout, conditional-rendering, fundamentals, how to ]
 ---

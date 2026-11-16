@@ -4,6 +4,7 @@
 title: Popup effect in react
 description: How popup effect in tailwind is created
 type: Project
+Date: 2026-11-15
 year: 2026
 tags: [react, practical, tailwind]
 
